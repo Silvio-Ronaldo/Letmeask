@@ -1,23 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Button } from '../../components/Button';
-
-import illustrationImg from '../../assets/images/illustration.svg';
-import logoImg from '../../assets/images/logo.svg';
+import { AsideIllustration } from '../../components/AsideIllustration';
 
 import { Container, MainContent } from './styles';
+
+import logoImg from '../../assets/images/logo.svg';
 
 export function NewRoom() {
 	return (
 		<Container>
-			<aside>
-				<img
-					src={illustrationImg}
-					alt="Ilustração representativa de perguntas e respostas"
-				/>
-				<strong>Crie salas de Q&amp;A ao-vivo.</strong>
-				<p>Tire as dúvidas de sua audiências em tempo real.</p>
-			</aside>
+			<AsideIllustration />
 			<main>
 				<MainContent>
 					<img src={logoImg} alt="Logo do Letmeask" />
@@ -28,7 +22,7 @@ export function NewRoom() {
 					</form>
 					<p>
 						Quer entrar em uma sala existente?
-						<a href="/#"> Clique aqui.</a>
+						<Link to="/"> Clique aqui.</Link>
 					</p>
 				</MainContent>
 			</main>
