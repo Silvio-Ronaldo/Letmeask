@@ -1,10 +1,12 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { Form } from '@unform/web';
 
 import { useAuth } from '../../hooks/AuthContext';
 
-import { Button } from '../../components/Button';
 import { AsideIllustration } from '../../components/AsideIllustration';
+import { Button } from '../../components/Button';
+import { Input } from '../../components/Input';
 
 import { Container, MainContent, CreateRoom, Separator } from './styles';
 
@@ -23,6 +25,10 @@ export function Home() {
 		history.push('/rooms/new');
 	}
 
+	function handleSubmit() {
+		console.log('aasasja');
+	}
+
 	return (
 		<Container>
 			<AsideIllustration />
@@ -34,13 +40,14 @@ export function Home() {
 						Crie sua sala com o Google
 					</CreateRoom>
 					<Separator>ou entre em uma sala</Separator>
-					<form>
-						<input
+					<Form onSubmit={handleSubmit}>
+						<Input
+							name="roomName"
 							type="text"
 							placeholder="Digite o código da sala"
 						/>
 						<Button type="submit">Entrar na sala</Button>
-					</form>
+					</Form>
 				</MainContent>
 			</main>
 		</Container>
