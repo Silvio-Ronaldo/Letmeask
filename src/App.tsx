@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
+import { AuthContextProvider } from './hooks/AuthContext';
+
 import { Routes } from './routes';
 
 import GlobalStyle from './styles/global';
@@ -8,8 +10,10 @@ import GlobalStyle from './styles/global';
 function App() {
 	return (
 		<BrowserRouter>
-			<Routes />
-			<GlobalStyle />
+			<AuthContextProvider>
+				<Routes />
+				<GlobalStyle />
+			</AuthContextProvider>
 		</BrowserRouter>
 	);
 }
