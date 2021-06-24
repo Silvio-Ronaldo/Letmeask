@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 
+import { reduceEachTrailingCommentRange } from 'typescript';
 import { useAuth } from '../../hooks/AuthContext';
+import { database } from '../../services/firebase';
 
 import { AsideIllustration } from '../../components/AsideIllustration';
 import { Button } from '../../components/Button';
@@ -13,20 +15,24 @@ import { Container, MainContent, CreateRoom, Separator } from './styles';
 import logoImg from '../../assets/images/logo.svg';
 import googleIconImg from '../../assets/images/google-icon.svg';
 
+type OpenRoomFormData = {
+	roomCode: string;
+};
+
 export function Home() {
 	const history = useHistory();
 	const { user, signInWithGoogle } = useAuth();
 
-	async function handleCreateRoom() {
+	const handleCreateRoom = useCallback(async () => {
 		if (!user) {
 			await signInWithGoogle();
 		}
 
 		history.push('/rooms/new');
-	}
+	}, [user, signInWithGoogle, history]);
 
-	function handleSubmit() {
-		console.log('aasasja');
+	function handleJoinRoom() {
+		return 'Teste';
 	}
 
 	return (
@@ -40,9 +46,9 @@ export function Home() {
 						Crie sua sala com o Google
 					</CreateRoom>
 					<Separator>ou entre em uma sala</Separator>
-					<Form onSubmit={handleSubmit}>
+					<Form onSubmit={handleJoinRoom}>
 						<Input
-							name="roomName"
+							name="roomCode"
 							type="text"
 							placeholder="Digite o código da sala"
 						/>

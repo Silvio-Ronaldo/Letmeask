@@ -1,8 +1,10 @@
-import React, { FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useCallback } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 
-import { useCallback } from 'react';
+import { database } from '../../services/firebase';
+import { useAuth } from '../../hooks/AuthContext';
+
 import { AsideIllustration } from '../../components/AsideIllustration';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
@@ -11,10 +13,31 @@ import { Container, MainContent } from './styles';
 
 import logoImg from '../../assets/images/logo.svg';
 
+type CreateRoomFormData = {
+	roomName: string;
+};
+
 export function NewRoom() {
-	const handleCreateRoom = useCallback(() => {
-		console.log('asasj');
-	}, []);
+	const { user } = useAuth();
+	const history = useHistory();
+
+	const handleCreateRoom = useCallback(
+		async ({ roomName }: CreateRoomFormData) => {
+			if (roomName.trim() === '') {
+				return;
+			}
+
+			const roomRef = database.ref('rooms');
+
+			const firebaseRoom = await roomRef.push({
+				title: roomName,
+				authorId: user?.id,
+			});
+
+			history.push(`/rooms/${firebaseRoom.key}`);
+		},
+		[user?.id, history],
+	);
 
 	return (
 		<Container>
