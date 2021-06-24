@@ -1,9 +1,10 @@
-import React, { useCallback, useRef, useEffect, useState } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 
 import { useAuth } from '../../hooks/AuthContext';
+import { useRoom } from '../../hooks/useRoom';
 import { database } from '../../services/firebase';
 
 import { RoomCode } from '../../components/RoomCode';
@@ -21,30 +22,6 @@ import {
 
 import logoImg from '../../assets/images/logo.svg';
 
-type FirebaseQuestions = Record<
-	string,
-	{
-		author: {
-			name: string;
-			avatar: string;
-		};
-		content: string;
-		isAnswered: boolean;
-		isHighlighted: boolean;
-	}
->;
-
-type QuestionData = {
-	id: string;
-	author: {
-		name: string;
-		avatar: string;
-	};
-	content: string;
-	isAnswered: boolean;
-	isHighlighted: boolean;
-};
-
 type RoomParams = {
 	id: string;
 };
@@ -57,35 +34,10 @@ export function Room() {
 	const params = useParams<RoomParams>();
 	const { user } = useAuth();
 	const formRef = useRef<FormHandles>(null);
-	const [questions, setQuestions] = useState<QuestionData[]>([]);
-	const [title, setTitle] = useState('');
 
 	const roomId = params.id;
 
-	useEffect(() => {
-		const roomRef = database.ref(`rooms/${roomId}`);
-
-		roomRef.on('value', room => {
-			const databaseRoom = room.val();
-			const firebaseQuestions: FirebaseQuestions =
-				databaseRoom.questions ?? {};
-
-			const parsedQuestions = Object.entries(firebaseQuestions).map(
-				([key, value]) => {
-					return {
-						id: key,
-						content: value.content,
-						author: value.author,
-						isHighlighted: value.isHighlighted,
-						isAnswered: value.isAnswered,
-					};
-				},
-			);
-
-			setTitle(databaseRoom.title);
-			setQuestions(parsedQuestions);
-		});
-	}, [roomId]);
+	const { title, questions } = useRoom(roomId);
 
 	const handleSendQuestion = useCallback(
 		async ({ newQuestion }: SendQuestionFormData) => {
