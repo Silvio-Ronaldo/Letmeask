@@ -31,9 +31,23 @@ export function Home() {
 		history.push('/rooms/new');
 	}, [user, signInWithGoogle, history]);
 
-	function handleJoinRoom() {
-		return 'Teste';
-	}
+	const handleJoinRoom = useCallback(
+		async ({ roomCode }: OpenRoomFormData) => {
+			if (roomCode.trim() === '') {
+				return;
+			}
+
+			const roomRef = await database.ref(`rooms/${roomCode}`).get();
+
+			if (!roomRef.exists()) {
+				alert('Room does not exists.');
+				return;
+			}
+
+			history.push(`/rooms/${roomCode}`);
+		},
+		[history],
+	);
 
 	return (
 		<Container>
