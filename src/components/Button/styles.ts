@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.button`
+export const Container = styled.button<{ outlined: boolean }>`
 	height: 3.125rem;
 	border-radius: 0.5rem;
 	font-weight: 500;
@@ -17,6 +17,14 @@ export const Container = styled.button`
 	img {
 		margin-right: 0.5rem;
 	}
+
+	${props =>
+		props.outlined &&
+		css`
+			background-color: #fff;
+			border: 0.0625rem solid #835afd;
+			color: #835afd;
+		`}
 
 	&:not(:disabled):hover {
 		filter: brightness(0.9);
