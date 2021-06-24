@@ -9,19 +9,6 @@ export const Container = styled.div`
 	main {
 		max-width: 50rem;
 		margin: 0 auto;
-
-		form {
-			textarea {
-				width: 100%;
-				border: 0;
-				padding: 1rem;
-				border-radius: 0.5rem;
-				background-color: #fefefe;
-				box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.04);
-				resize: vertical;
-				min-height: 8.125rem;
-			}
-		}
 	}
 `;
 
@@ -65,7 +52,25 @@ export const FormFooter = styled.div`
 	align-items: center;
 	margin-top: 1rem;
 
-	span {
+	div {
+		display: flex;
+		align-items: center;
+
+		img {
+			width: 2rem;
+			height: 2rem;
+			border-radius: 50%;
+		}
+
+		span {
+			margin-left: 0.5rem;
+			color: #29292e;
+			font-weight: 500;
+			font-size: 0.875rem;
+		}
+	}
+
+	> span {
 		font-size: 0.875rem;
 		color: #737380;
 		font-weight: 500;
