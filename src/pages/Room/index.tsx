@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
@@ -14,6 +14,30 @@ import { Container, HeaderContent, RoomTitle, FormFooter } from './styles';
 
 import logoImg from '../../assets/images/logo.svg';
 
+type FirebaseQuestions = Record<
+	string,
+	{
+		author: {
+			name: string;
+			avatar: string;
+		};
+		content: string;
+		isAnswered: boolean;
+		isHighlighted: boolean;
+	}
+>;
+
+type Question = {
+	id: string;
+	author: {
+		name: string;
+		avatar: string;
+	};
+	content: string;
+	isAnswered: boolean;
+	isHighlighted: boolean;
+};
+
 type RoomParams = {
 	id: string;
 };
@@ -26,8 +50,35 @@ export function Room() {
 	const params = useParams<RoomParams>();
 	const { user } = useAuth();
 	const formRef = useRef<FormHandles>(null);
+	const [questions, setQuestions] = useState<Question[]>([]);
+	const [title, setTitle] = useState('');
 
 	const roomId = params.id;
+
+	useEffect(() => {
+		const roomRef = database.ref(`rooms/${roomId}`);
+
+		roomRef.once('value', room => {
+			const databaseRoom = room.val();
+			const firebaseQuestions: FirebaseQuestions =
+				databaseRoom.questions ?? {};
+
+			const parsedQuestions = Object.entries(firebaseQuestions).map(
+				([key, value]) => {
+					return {
+						id: key,
+						content: value.content,
+						author: value.author,
+						isHighlighted: value.isHighlighted,
+						isAnswered: value.isAnswered,
+					};
+				},
+			);
+
+			setTitle(databaseRoom.title);
+			setQuestions(parsedQuestions);
+		});
+	}, [roomId]);
 
 	const handleSendQuestion = useCallback(
 		async ({ newQuestion }: SendQuestionFormData) => {
@@ -67,8 +118,10 @@ export function Room() {
 
 			<main>
 				<RoomTitle>
-					<h1>Sala React</h1>
-					<span>4 perguntas</span>
+					<h1>Sala {title}</h1>
+					{questions.length > 0 && (
+						<span>{questions.length} pergunta(s)</span>
+					)}
 				</RoomTitle>
 
 				<Form ref={formRef} onSubmit={handleSendQuestion}>
@@ -94,6 +147,8 @@ export function Room() {
 						</Button>
 					</FormFooter>
 				</Form>
+
+				{JSON.stringify(questions)}
 			</main>
 		</Container>
 	);
