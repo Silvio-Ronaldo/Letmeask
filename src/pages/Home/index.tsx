@@ -2,7 +2,6 @@ import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 
-import { reduceEachTrailingCommentRange } from 'typescript';
 import { useAuth } from '../../hooks/AuthContext';
 import { database } from '../../services/firebase';
 
