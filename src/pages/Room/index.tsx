@@ -9,8 +9,15 @@ import { database } from '../../services/firebase';
 import { RoomCode } from '../../components/RoomCode';
 import { Button } from '../../components/Button';
 import { Textarea } from '../../components/Textarea';
+import { Question } from '../../components/Question';
 
-import { Container, HeaderContent, RoomTitle, FormFooter } from './styles';
+import {
+	Container,
+	HeaderContent,
+	RoomTitle,
+	FormFooter,
+	QuestionList,
+} from './styles';
 
 import logoImg from '../../assets/images/logo.svg';
 
@@ -27,7 +34,7 @@ type FirebaseQuestions = Record<
 	}
 >;
 
-type Question = {
+type QuestionData = {
 	id: string;
 	author: {
 		name: string;
@@ -50,7 +57,7 @@ export function Room() {
 	const params = useParams<RoomParams>();
 	const { user } = useAuth();
 	const formRef = useRef<FormHandles>(null);
-	const [questions, setQuestions] = useState<Question[]>([]);
+	const [questions, setQuestions] = useState<QuestionData[]>([]);
 	const [title, setTitle] = useState('');
 
 	const roomId = params.id;
@@ -58,7 +65,7 @@ export function Room() {
 	useEffect(() => {
 		const roomRef = database.ref(`rooms/${roomId}`);
 
-		roomRef.once('value', room => {
+		roomRef.on('value', room => {
 			const databaseRoom = room.val();
 			const firebaseQuestions: FirebaseQuestions =
 				databaseRoom.questions ?? {};
@@ -148,7 +155,17 @@ export function Room() {
 					</FormFooter>
 				</Form>
 
-				{JSON.stringify(questions)}
+				<QuestionList>
+					{questions.map(question => {
+						return (
+							<Question
+								key={question.id}
+								content={question.content}
+								author={question.author}
+							/>
+						);
+					})}
+				</QuestionList>
 			</main>
 		</Container>
 	);
