@@ -13,6 +13,8 @@ import { Container, HeaderContent, RoomTitle, QuestionList } from './styles';
 
 import logoImg from '../../assets/images/logo.svg';
 import deleteImg from '../../assets/images/delete.svg';
+import checkImg from '../../assets/images/check.svg';
+import answerImg from '../../assets/images/answer.svg';
 
 type RoomParams = {
 	id: string;
@@ -66,6 +68,28 @@ export function AdminRoom() {
 		handleModal();
 	}, [endedRoom, roomId, modalQuestionId, handleModal, history]);
 
+	const handleCheckQuestionAsAnswered = useCallback(
+		async (questionId: string) => {
+			await database
+				.ref(`rooms/${roomId}/questions/${questionId}`)
+				.update({
+					isAnswered: true,
+				});
+		},
+		[roomId],
+	);
+
+	const handleHighlightQuestion = useCallback(
+		async (questionId: string) => {
+			await database
+				.ref(`rooms/${roomId}/questions/${questionId}`)
+				.update({
+					isHighlighted: true,
+				});
+		},
+		[roomId],
+	);
+
 	return (
 		<>
 			<Container>
@@ -96,7 +120,41 @@ export function AdminRoom() {
 									key={question.id}
 									content={question.content}
 									author={question.author}
+									isAnswered={question.isAnswered}
+									isHighlighted={question.isHighlighted}
 								>
+									{!question.isAnswered && (
+										<>
+											<button
+												type="button"
+												onClick={() =>
+													handleCheckQuestionAsAnswered(
+														question.id,
+													)
+												}
+											>
+												<img
+													src={checkImg}
+													alt="Marcar como respondida"
+												/>
+											</button>
+
+											<button
+												type="button"
+												onClick={() =>
+													handleHighlightQuestion(
+														question.id,
+													)
+												}
+											>
+												<img
+													src={answerImg}
+													alt="Dar destaque à pergunta"
+												/>
+											</button>
+										</>
+									)}
+
 									<button
 										type="button"
 										onClick={() =>

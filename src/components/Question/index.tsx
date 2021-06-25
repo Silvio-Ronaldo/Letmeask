@@ -10,11 +10,19 @@ type Question = {
 		avatar: string;
 	};
 	children?: ReactNode;
+	isAnswered?: boolean;
+	isHighlighted?: boolean;
 };
 
-export function Question({ content, author, children }: Question) {
+export function Question({
+	content,
+	author,
+	isAnswered = false,
+	isHighlighted = false,
+	children,
+}: Question) {
 	return (
-		<Container>
+		<Container isAnswered={isAnswered} isHighlighted={isHighlighted}>
 			<p>{content}</p>
 			<footer>
 				<UserInfo>
