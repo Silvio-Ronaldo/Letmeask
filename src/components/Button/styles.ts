@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.button<{ outlined: boolean }>`
+export const Container = styled.button<{
+	outlined: boolean;
+	color: string | undefined;
+	backgroundColor: string | undefined;
+}>`
 	height: 3.125rem;
 	border-radius: 0.5rem;
 	font-weight: 500;
@@ -24,6 +28,18 @@ export const Container = styled.button<{ outlined: boolean }>`
 			background-color: #fff;
 			border: 0.0625rem solid #835afd;
 			color: #835afd;
+		`}
+
+	${props =>
+		props.color &&
+		css`
+			color: ${props.color};
+		`}
+
+	${props =>
+		props.backgroundColor &&
+		css`
+			background-color: ${props.backgroundColor};
 		`}
 
 	&:not(:disabled):hover {
