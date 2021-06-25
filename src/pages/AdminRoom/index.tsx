@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import { useRoom } from '../../hooks/useRoom';
 import { database } from '../../services/firebase';
@@ -20,8 +20,12 @@ type RoomParams = {
 
 export function AdminRoom() {
 	const params = useParams<RoomParams>();
+	const history = useHistory();
+
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [modalQuestionId, setModalQuestionId] = useState('');
+	const [endedRoom, setEndedRoom] = useState(false);
+	const [action, setAction] = useState('');
 
 	const roomId = params.id;
 
@@ -31,21 +35,36 @@ export function AdminRoom() {
 		setModalIsOpen(!modalIsOpen);
 	}, [modalIsOpen]);
 
+	const handleEndRoom = useCallback(() => {
+		setEndedRoom(!endedRoom);
+		setAction('endRoom');
+		handleModal();
+	}, [endedRoom, handleModal]);
+
 	const handleDeleteQuestion = useCallback(
 		(questionId: string) => {
 			setModalQuestionId(questionId);
+			setAction('deleteQuestion');
 			handleModal();
 		},
 		[handleModal],
 	);
 
-	const handleConfirmDeleteQuestion = useCallback(async () => {
-		await database
-			.ref(`rooms/${roomId}/questions/${modalQuestionId}`)
-			.remove();
+	const handleConfirmAction = useCallback(async () => {
+		if (endedRoom) {
+			await database.ref(`rooms/${roomId}`).update({
+				endedAt: new Date(),
+			});
+
+			history.push('/');
+		} else {
+			await database
+				.ref(`rooms/${roomId}/questions/${modalQuestionId}`)
+				.remove();
+		}
 
 		handleModal();
-	}, [roomId, modalQuestionId, handleModal]);
+	}, [endedRoom, roomId, modalQuestionId, handleModal, history]);
 
 	return (
 		<>
@@ -55,7 +74,9 @@ export function AdminRoom() {
 						<img src={logoImg} alt="Letmeask" />
 						<div>
 							<RoomCode code={roomId} />
-							<Button isOutlined>Encerrar sala</Button>
+							<Button onClick={handleEndRoom} isOutlined>
+								Encerrar sala
+							</Button>
 						</div>
 					</HeaderContent>
 				</header>
@@ -97,7 +118,8 @@ export function AdminRoom() {
 			<Modal
 				isOpen={modalIsOpen}
 				handleModal={handleModal}
-				handleConfirmDelete={handleConfirmDeleteQuestion}
+				handleAction={handleConfirmAction}
+				action={action}
 			/>
 		</>
 	);
