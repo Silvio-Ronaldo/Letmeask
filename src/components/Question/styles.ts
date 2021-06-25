@@ -16,6 +16,12 @@ export const Container = styled.div`
 		justify-content: space-between;
 		align-items: center;
 		margin-top: 1.5rem;
+
+		button {
+			border: 0;
+			background: transparent;
+			transition: filter 0.2s;
+		}
 	}
 `;
 
@@ -33,5 +39,16 @@ export const UserInfo = styled.div`
 		margin-left: 0.5rem;
 		color: #737380;
 		font-size: 0.875rem;
+	}
+`;
+
+export const LikeButtonQuestion = styled.button`
+	display: flex;
+	align-items: flex-end;
+	color: #737380;
+	gap: 0.5rem;
+
+	&:hover {
+		filter: brightness(0.7);
 	}
 `;

@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { LikeButtonQuestion } from '../../components/Question/styles';
 
 export const Container = styled.div`
 	header {
@@ -87,4 +89,19 @@ export const FormFooter = styled.div`
 
 export const QuestionList = styled.div`
 	margin: 2rem 0;
+`;
+
+export const LikeButton = styled(LikeButtonQuestion)<{ liked: boolean }>`
+	${props =>
+		props.liked &&
+		css`
+			color: #835afd;
+
+			svg {
+				path {
+					fill: #835afd;
+					stroke: #fff;
+				}
+			}
+		`}
 `;
