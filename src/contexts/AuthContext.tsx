@@ -1,10 +1,4 @@
-import React, {
-	createContext,
-	ReactNode,
-	useContext,
-	useEffect,
-	useState,
-} from 'react';
+import React, { createContext, ReactNode, useEffect, useState } from 'react';
 
 import { firebase, auth } from '../services/firebase';
 
@@ -76,7 +70,3 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
 		</AuthContext.Provider>
 	);
 }
-
-export const useAuth = () => {
-	return useContext(AuthContext);
-};

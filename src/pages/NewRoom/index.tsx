@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 
 import { database } from '../../services/firebase';
-import { useAuth } from '../../hooks/AuthContext';
+import { useAuth } from '../../hooks/useAuth';
 
 import { AsideIllustration } from '../../components/AsideIllustration';
 import { Button } from '../../components/Button';
