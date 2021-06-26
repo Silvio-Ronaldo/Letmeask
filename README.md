@@ -51,23 +51,23 @@
 
 <h3>Enter an existing room</h3>
   <p align="center">
-    <img src="./assets/home.gif" alt="Letmeask Home" />
+    <img src="./assets/home.png" alt="Letmeask Home" />
   </p>
 
 <h3>Sign in and Create your own room</h3>
   <p align="center">
-    <img src="./assets/player.gif" alt="Letmeask New Room" />
+    <img src="./assets/newRoom.png" alt="Letmeask New Room" />
   </p>
 
 <h3>Clear your doubts and follow up on others' doubts</h3>
   <p align="center">
-    <img src="./assets/episode.gif" alt="Letmeask Room" />
+    <img src="./assets/room.gif" alt="Letmeask Room" />
   </p>
   </br>
   
 <h3>🔐 For admin! 🔐 Manage the room, highlight questions and remove questions at any time.</h3>
   <p align="center">
-    <img src="./assets/episode.gif" alt="Letmeask Admin Room" />
+    <img src="./assets/admin-room.gif" alt="Letmeask Admin Room" />
   </p>
   </br>
 
@@ -75,7 +75,7 @@
 <h2>🔥 Extra Features</h2>
 <h3>Dark Mode</h3>
   <p align="center">
-    <img src="./assets/dark-theme.gif" alt="Letmeask Dark Mode" />
+    <img src="./assets/dark-mode.gif" alt="Letmeask Dark Mode" />
   </p>
 
 <h3>Responsive</h3>
@@ -93,7 +93,7 @@
   
 <h3>Modal</h3>
   <p align="center">
-    <img src="./assets/responsive-1.png" alt="Letmeask Modal" height=600 width=800 />
+    <img src="./assets/modal.gif" alt="Letmeask Modal" />
   </p>
   
 <h3>PWA</h3>
