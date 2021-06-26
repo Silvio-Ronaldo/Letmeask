@@ -129,7 +129,7 @@ export function Room() {
 							</span>
 						)}
 						<Button type="submit" disabled={!user}>
-							Enviar perguntas
+							Enviar pergunta
 						</Button>
 					</FormFooter>
 				</Form>

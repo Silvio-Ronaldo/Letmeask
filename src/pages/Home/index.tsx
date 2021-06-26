@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 
 import { useAuth } from '../../hooks/useAuth';
+import { useTheme } from '../../hooks/useTheme';
 import { database } from '../../services/firebase';
 
 import { AsideIllustration } from '../../components/AsideIllustration';
@@ -21,6 +22,7 @@ type OpenRoomFormData = {
 export function Home() {
 	const history = useHistory();
 	const { user, signInWithGoogle } = useAuth();
+	const { isDarked } = useTheme();
 
 	const handleCreateRoom = useCallback(async () => {
 		if (!user) {
@@ -57,7 +59,7 @@ export function Home() {
 		<Container>
 			<AsideIllustration />
 			<main>
-				<MainContent>
+				<MainContent isDarked={isDarked}>
 					<img src={logoImg} alt="Logo do Letmeask" />
 					<CreateRoom onClick={handleCreateRoom} type="button">
 						<img src={googleIconImg} alt="Logo do Google" />

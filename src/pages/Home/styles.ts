@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
 	display: flex;
@@ -15,7 +15,7 @@ export const Container = styled.div`
 	}
 `;
 
-export const MainContent = styled.div`
+export const MainContent = styled.div<{ isDarked: boolean }>`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -25,6 +25,15 @@ export const MainContent = styled.div`
 	> img {
 		align-self: center;
 	}
+
+	${props =>
+		props.isDarked &&
+		css`
+			> img {
+				filter: invert(38%) sepia(65%) saturate(3856%)
+					hue-rotate(241deg) brightness(96%) contrast(86%);
+			}
+		`}
 
 	form {
 		button {

@@ -50,6 +50,7 @@ export default {
 
 		createRoomButtonBackground: '#ea4335',
 		createRoomButtonColor: '#ffffff',
+		createRoomTitleColor: '#835afd',
 		separatorColor: '#a8a8b3',
 		separatorBackground: '#a8a8b3',
 

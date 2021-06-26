@@ -22,7 +22,7 @@ type ThemeContextProviderProps = {
 };
 
 export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
-	const [isDarked, setIsDarked] = useState(false);
+	const [isDarked, setIsDarked] = useState(true);
 
 	useLayoutEffect(() => {
 		const dark = localStorage.getItem('isDarked');

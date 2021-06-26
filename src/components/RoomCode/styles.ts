@@ -29,5 +29,9 @@ export const Container = styled.button`
 		font-size: 0.875rem;
 		font-weight: 500;
 		color: ${props => props.theme.colors.roomCodeSpanColor};
+
+		@media (max-width: 750px) {
+			display: none;
+		}
 	}
 `;

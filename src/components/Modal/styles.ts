@@ -5,8 +5,13 @@ export const ModalContent = styled.div`
 	background-color: ${props => props.theme.colors.modalBackground};
 	flex-direction: column;
 	justify-content: center;
+	text-align: center;
 	align-items: center;
 	padding: 2rem 6rem;
+
+	@media (max-width: 380px) {
+		padding: 2rem 3rem;
+	}
 
 	svg {
 		path {
@@ -34,4 +39,8 @@ export const Buttons = styled.div`
 	gap: 0.5rem;
 
 	margin-top: 3rem;
+
+	@media (max-width: 380px) {
+		flex-direction: column;
+	}
 `;

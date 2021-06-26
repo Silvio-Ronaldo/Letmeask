@@ -5,69 +5,70 @@ declare module 'styled-components' {
 		title: string;
 
 		colors: {
-			background: string; // #f8f8f8
-			asideBackground: string; // #835afd
-			headerBackground: string; // #f8f8f8
+			background: string;
+			asideBackground: string;
+			headerBackground: string;
 
-			color: string; // #ffffff
-			paragraphColor: string; // #f8f8f8
+			color: string;
+			paragraphColor: string;
 
-			buttonBackground: string; // #835afd
-			buttonOutlinedBackground: string; // #ffffff
-			buttonOutlinedBorder: string; // #835afd
-			buttonOutlinedColor: string; // #835afd
+			buttonBackground: string;
+			buttonOutlinedBackground: string;
+			buttonOutlinedBorder: string;
+			buttonOutlinedColor: string;
 
-			inputBackground: string; // #ffffff
-			inputBorder: string; // #a8a8b3
+			inputBackground: string;
+			inputBorder: string;
 
-			modalSvgStroke: string; // #e13a3a
-			modalStrongColor: string; // #29292e
-			modalSpanColor: string; // #737373
-			modalBackground: string; // #ffffff
+			modalSvgStroke: string;
+			modalStrongColor: string;
+			modalSpanColor: string;
+			modalBackground: string;
 
-			questionBackground: string; // #ffffff
-			questionHighlightedBackground: string; // #f4f0ff
-			questionHighlightedBorder: string; // #835afd
-			questionHighlightedColor: string; // #29292e
-			questionAnsweredBackground: string; // #dbdcdd
-			questionParagraphColor: string; // #29292e
+			questionBackground: string;
+			questionHighlightedBackground: string;
+			questionHighlightedBorder: string;
+			questionHighlightedColor: string;
+			questionAnsweredBackground: string;
+			questionParagraphColor: string;
 
-			userInfoSpanColor: string; // #737380
-			likeButtonColor: string; // #737380
-			likeButtonLikedColor: string; // #835afd
-			likeButtonLikedSvgFill: string; // #835afd
-			likeButtonLikedSvgStroke: string; // #ffffff
+			userInfoSpanColor: string;
+			likeButtonColor: string;
+			likeButtonLikedColor: string;
+			likeButtonLikedSvgFill: string;
+			likeButtonLikedSvgStroke: string;
 
-			roomCodeBackground: string; // #ffffff
-			roomCodeBorder: string; // #835afd
-			roomCodeImageBackground: string; // #835afd
-			roomCodeSpanColor: string; // #ffffff
+			roomCodeBackground: string;
+			roomCodeBorder: string;
+			roomCodeImageBackground: string;
+			roomCodeSpanColor: string;
 
-			textAreaBackground: string; // #fefefe
-			textAreaColor: string; // #000000
+			textAreaBackground: string;
+			textAreaColor: string;
 
-			adminRoomHeaderBorder: string; // #e2e2e2
-			adminRoomTitle: string; // #29292e
-			adminRoomSpanBackground: string; // #e559f9
-			adminRoomSpanColor: string; // #ffffff
+			adminRoomHeaderBorder: string;
+			adminRoomTitle: string;
+			adminRoomSpanBackground: string;
+			adminRoomSpanColor: string;
 
-			createRoomButtonBackground: string; // #ea4335
-			createRoomButtonColor: string; // #ffffff
-			separatorColor: string; // #a8a8b3
-			separatorBackground: string; // #a8a8b3
+			createRoomButtonBackground: string;
+			createRoomButtonColor: string;
+			createRoomTitleColor: string;
+			separatorColor: string;
+			separatorBackground: string;
 
-			newRoomParagraphColor: string; // #737380
-			newRoomLinkColor: string; // #e559f9
+			newRoomParagraphColor: string;
+			newRoomLinkColor: string;
 
-			roomHeaderBorder: string; // #e2e2e2
-			roomTitleColor: string; // #29292e
-			roomTitleSpanBackground: string; // #e559f9
-			roomTitleSpanColor: string; // #ffffff
-			roomFormFooterSpanColor: string; // #737380
-			roomFormFooterButtonColor: string; // #835afd
+			roomHeaderBorder: string;
+			roomTitleColor: string;
+			roomTitleSpanBackground: string;
+			roomTitleSpanColor: string;
+			roomFormFooterSpanColor: string;
+			roomFormFooterButtonColor: string;
 
-			sunButton: string; // #ffa300
-			moonButton: string; // #1d2eff
+			sunButton: string;
+			moonButton: string;
 		};
 	}
 }

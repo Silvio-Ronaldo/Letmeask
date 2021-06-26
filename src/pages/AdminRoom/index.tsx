@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+import { FiLock } from 'react-icons/fi';
 
 import { useRoom } from '../../hooks/useRoom';
 import { useTheme } from '../../hooks/useTheme';
@@ -11,7 +12,14 @@ import { Button } from '../../components/Button';
 import { Question } from '../../components/Question';
 import { Modal } from '../../components/Modal';
 
-import { Container, HeaderContent, RoomTitle, QuestionList } from './styles';
+import {
+	Container,
+	HeaderContent,
+	CloseRoom,
+	LockButton,
+	RoomTitle,
+	QuestionList,
+} from './styles';
 
 import logoImg from '../../assets/images/logo.svg';
 
@@ -99,9 +107,19 @@ export function AdminRoom() {
 						<div>
 							<ToggleTheme />
 							<RoomCode code={roomId} />
-							<Button onClick={handleEndRoom} isOutlined>
-								Encerrar sala
-							</Button>
+							<CloseRoom>
+								<div>
+									<Button onClick={handleEndRoom} isOutlined>
+										Encerrar sala
+									</Button>
+								</div>
+								<LockButton
+									onClick={handleEndRoom}
+									isDarked={isDarked}
+								>
+									<FiLock size={30} />
+								</LockButton>
+							</CloseRoom>
 						</div>
 					</HeaderContent>
 				</header>

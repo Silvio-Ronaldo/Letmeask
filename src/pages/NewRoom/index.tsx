@@ -4,6 +4,7 @@ import { Form } from '@unform/web';
 
 import { database } from '../../services/firebase';
 import { useAuth } from '../../hooks/useAuth';
+import { useTheme } from '../../hooks/useTheme';
 
 import { AsideIllustration } from '../../components/AsideIllustration';
 import { Button } from '../../components/Button';
@@ -19,6 +20,7 @@ type CreateRoomFormData = {
 
 export function NewRoom() {
 	const { user } = useAuth();
+	const { isDarked } = useTheme();
 	const history = useHistory();
 
 	const handleCreateRoom = useCallback(
@@ -43,7 +45,7 @@ export function NewRoom() {
 		<Container>
 			<AsideIllustration />
 			<main>
-				<MainContent>
+				<MainContent isDarked={isDarked}>
 					<img src={logoImg} alt="Logo do Letmeask" />
 					<h2>Crie uma nova sala</h2>
 					<Form onSubmit={handleCreateRoom}>

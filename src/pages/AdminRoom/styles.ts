@@ -11,6 +11,10 @@ export const Container = styled.div`
 	main {
 		max-width: 50rem;
 		margin: 0 auto;
+
+		@media (max-width: 880px) {
+			margin: 0 2rem;
+		}
 	}
 `;
 
@@ -38,9 +42,41 @@ export const HeaderContent = styled.div<{ isDarked: boolean }>`
 		display: flex;
 		gap: 2rem;
 
-		button {
+		@media (max-width: 370px) {
+			gap: 1rem;
+		}
+
+		> button {
 			height: 2.5rem;
 		}
+	}
+`;
+
+export const CloseRoom = styled.div`
+	display: flex;
+	align-items: center;
+	height: 2.5rem;
+
+	button {
+		height: 2.5rem;
+	}
+
+	div {
+		@media (max-width: 520px) {
+			display: none;
+		}
+	}
+`;
+
+export const LockButton = styled.button<{ isDarked: boolean }>`
+	display: none;
+	background: transparent;
+	border: 0;
+	color: ${props => props.theme.colors.buttonBackground};
+
+	@media (max-width: 520px) {
+		display: flex;
+		align-items: center;
 	}
 `;
 

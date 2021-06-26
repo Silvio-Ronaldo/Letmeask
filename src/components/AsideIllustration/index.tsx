@@ -12,7 +12,7 @@ export function AsideIllustration() {
 				alt="Ilustração representativa de perguntas e respostas"
 			/>
 			<strong>Crie salas de Q&amp;A ao-vivo.</strong>
-			<p>Tire as dúvidas de sua audiências em tempo real.</p>
+			<p>Tire as dúvidas de sua audiência em tempo real.</p>
 		</Container>
 	);
 }

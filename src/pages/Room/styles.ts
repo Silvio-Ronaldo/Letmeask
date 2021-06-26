@@ -13,6 +13,10 @@ export const Container = styled.div`
 	main {
 		max-width: 50rem;
 		margin: 0 auto;
+
+		@media (max-width: 880px) {
+			margin: 0 2rem;
+		}
 	}
 `;
 
@@ -68,6 +72,7 @@ export const RoomTitle = styled.div`
 export const FormFooter = styled.div`
 	display: flex;
 	justify-content: space-between;
+	gap: 2rem;
 	align-items: center;
 	margin-top: 1rem;
 

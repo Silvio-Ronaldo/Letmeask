@@ -24,6 +24,7 @@ const customStyles = {
 		boxShadow: '1px 2px 10px #3f3f3f',
 		padding: 0,
 		border: 0,
+		width: '90%',
 	},
 };
 
