@@ -6,10 +6,10 @@
       "$roomId": {
         ".read": true,
         ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.id)",
-      	"questions": {
+        "questions": {
           ".read": true,
           ".write": "auth != null && (!data.exists() || data.parent().child('authorId').val() == auth.id)",
-					"likes": {
+          "likes": {
             ".read": true,
             ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.id)"
           }

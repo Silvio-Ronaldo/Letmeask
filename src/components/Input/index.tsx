@@ -22,7 +22,7 @@ export function Input({ name, ...rest }: InputProps) {
 
 	return (
 		<Container>
-			<input ref={inputRef} {...rest} />;
+			<input ref={inputRef} {...rest} />
 		</Container>
 	);
 }
