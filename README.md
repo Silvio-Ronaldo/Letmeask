@@ -30,13 +30,13 @@
   📋 Table of contents
 </h2>
 <ul>
-  <li><a href="https://github.com/Silvio-Ronaldo/podcastr#-status">Status</a></li>
-  <li><a href="https://github.com/Silvio-Ronaldo/podcastr#%EF%B8%8F-demonstration">Demonstration</a></li>
-  <li><a href="https://github.com/Silvio-Ronaldo/podcastr#-extra-features">Extra Features</a></li>
-  <li><a href="https://github.com/Silvio-Ronaldo/podcastr#%EF%B8%8F-running-locally">Running Locally</a></li>
-  <li><a href="https://github.com/Silvio-Ronaldo/podcastr#%EF%B8%8F-technologies">Technologies</a></li>
-  <li><a href="https://github.com/Silvio-Ronaldo/podcastr#%EF%B8%8F-technologies">Author</a></li>
-  <li><a href="https://github.com/Silvio-Ronaldo/podcastr#%EF%B8%8F-license">License</a></li>
+  <li><a href="https://github.com/Silvio-Ronaldo/Letmeask#-status">Status</a></li>
+  <li><a href="https://github.com/Silvio-Ronaldo/Letmeask#%EF%B8%8F-demonstration">Demonstration</a></li>
+  <li><a href="https://github.com/Silvio-Ronaldo/Letmeask#-extra-features">Extra Features</a></li>
+  <li><a href="https://github.com/Silvio-Ronaldo/Letmeask#%EF%B8%8F-running-locally">Running Locally</a></li>
+  <li><a href="https://github.com/Silvio-Ronaldo/Letmeask#%EF%B8%8F-technologies">Technologies</a></li>
+  <li><a href="https://github.com/Silvio-Ronaldo/Letmeask#-author">Author</a></li>
+  <li><a href="https://github.com/Silvio-Ronaldo/Letmeask#%EF%B8%8F-license">License</a></li>
 </ul>
 
 
@@ -146,7 +146,7 @@
   <li><a href="https://unform.dev">Unform</a></li>
   <li><a href="https://eslint.org">Eslint</a></li>
   <li><a href="https://prettier.io">Prettier</a></li>
-  <li><https://github.com/reactjs/react-modal">React Modal</a></li>
+  <li><a href="https://github.com/reactjs/react-modal">React Modal</a></li>
   <li><a href="https://react-icons.github.io/react-icons/">React Icons</a></li>
 </ul>
 
