@@ -80,15 +80,13 @@
 
 <h3>Responsive</h3>
   <p align="center">
-    <img src="./assets/responsive-1.png" alt="Letmeask Responsive Screen" height=600 width=800 />
-  </p>
-  
-  <p align="center">
-    <img src="./assets/responsive-3.png" alt="Letmeask Responsive Screen" />
+    <img src="./assets/responsividade-1.jpeg" alt="Letmeask Responsive Screen" width=300 height=500 />
+    <img src="./assets/responsividade-2.jpeg" alt="Letmeask Responsive Screen" width=300 height=500 />
   </p></br>
   
   <p align="center">
-    <img src="./assets/responsive-2.png" alt="Letmeask Responsive Screen" />
+    <img src="./assets/responsividade-3.jpeg" alt="Letmeask Responsive Screen" width=300 height=500 />
+    <img src="./assets/responsividade-4.jpeg" alt="Letmeask Responsive Screen" width=300 height=500 />
   </p></br>
   
 <h3>Modal</h3>
@@ -98,7 +96,7 @@
   
 <h3>PWA</h3>
   <p align="center">
-    <img src="./assets/pwa-2.jpeg" alt="Letmeask PWA" height=800 />
+    <img src="./assets/pwa.jpeg" alt="Letmeask PWA" height=800 />
     <img src="./assets/pwa-1.jpeg" alt="Letmeask PWA" height=800 />
   </p>
   
@@ -131,7 +129,11 @@
 </ol>
 
 <h3>Running Letmeask PWA</h3>
-<p>To install PWA, access the Letmeask platform through Chrome or Edge browsers, both on your smartphone and on your computer and click on install application.</p>
+<p>To install PWA, access the Letmeask platform through Chrome or Edge browsers, both on your smartphone and on your computer and click on install application.</p></br>
+
+
+<h2>🟠 Firebase</h2>
+<p><i>Attention: Letmeask uses the Realtime database provided by Firebase. So, for a complete functioning of the application, create an account in Firebase, and configure the Realtime database according to the rules present in the file database.json. After that, get your app credentials from the Firebase console and put it in the .env according to the .env.example!</i></p></br>
 
 
 <h2>🛡️ Technologies</h2>
