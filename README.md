@@ -134,7 +134,7 @@
 
 
 <h2>🟠 Firebase</h2>
-<p><i>Attention: Letmeask uses the Realtime database provided by Firebase. So, for a complete functioning of the application, create an account in Firebase, and configure the Realtime database according to the rules present in the file database.json. After that, get your app credentials from the Firebase console and put it in the .env according to the .env.example!</i></p></br>
+<p><i>Attention: Letmeask uses the Realtime database provided by Firebase. So, if you download the code and run it on localhost and if you want the application to work correctly on your machine locally, create an account in Firebase, and configure the Realtime database according to the rules present in the file database.json. After that, get your app credentials from the Firebase console and put it in the .env according to the .env.example!</i></p></br>
 
 
 <h2>🛡️ Technologies</h2>
