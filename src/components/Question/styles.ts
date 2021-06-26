@@ -4,7 +4,7 @@ export const Container = styled.div<{
 	isAnswered: boolean;
 	isHighlighted: boolean;
 }>`
-	background-color: #fefefe;
+	background-color: ${props => props.theme.colors.questionBackground};
 	border-radius: 0.5rem;
 	box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.4);
 	padding: 1.5rem;
@@ -14,19 +14,20 @@ export const Container = styled.div<{
 		props.isHighlighted &&
 		!props.isAnswered &&
 		css`
-			background: #f4f0ff;
-			border: 0.0625rem solid #835afd;
-			color: #29292e;
+			background: ${props.theme.colors.questionHighlightedBackground};
+			border: 0.0625rem solid
+				${props.theme.colors.questionHighlightedBorder};
+			color: ${props.theme.colors.questionHighlightedColor};
 		`}
 
 	${props =>
 		props.isAnswered &&
 		css`
-			background: #dbdcdd;
+			background: ${props.theme.colors.questionAnsweredBackground};
 		`}
 
 	p {
-		color: #29292e;
+		color: ${props => props.theme.colors.questionParagraphColor};
 	}
 
 	footer {
@@ -39,6 +40,24 @@ export const Container = styled.div<{
 			border: 0;
 			background: transparent;
 			transition: filter 0.2s;
+
+			svg {
+				path,
+				circle {
+					${props =>
+						props.isHighlighted &&
+						!props.isAnswered &&
+						css`
+							stroke: #835afd;
+						`}
+
+					${props =>
+						props.isAnswered &&
+						css`
+							stroke: #ffffff;
+						`}
+				}
+			}
 		}
 
 		div {
@@ -60,7 +79,7 @@ export const UserInfo = styled.div`
 
 	span {
 		margin-left: 0.5rem;
-		color: #737380;
+		color: ${props => props.theme.colors.userInfoSpanColor};
 		font-size: 0.875rem;
 	}
 `;
@@ -68,7 +87,7 @@ export const UserInfo = styled.div`
 export const LikeButtonQuestion = styled.button`
 	display: flex;
 	align-items: flex-end;
-	color: #737380;
+	color: ${props => props.theme.colors.likeButtonColor};
 	gap: 0.5rem;
 
 	&:hover {

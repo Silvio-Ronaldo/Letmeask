@@ -43,8 +43,8 @@ export const CreateRoom = styled.button`
 	height: 3.125rem;
 	border-radius: 0.5rem;
 	font-weight: 500;
-	background-color: #ea4335;
-	color: #fff;
+	background-color: ${props => props.theme.colors.createRoomButtonBackground};
+	color: ${props => props.theme.colors.createRoomButtonColor};
 
 	display: flex;
 	align-items: center;
@@ -63,7 +63,7 @@ export const CreateRoom = styled.button`
 
 export const Separator = styled.div`
 	font-size: 0.875rem;
-	color: #a8a8b3;
+	color: ${props => props.theme.colors.separatorColor};
 	display: flex;
 	align-items: center;
 
@@ -73,7 +73,7 @@ export const Separator = styled.div`
 		content: '';
 		flex: 1;
 		height: 0.0625rem;
-		background-color: #a8a8b3;
+		background-color: ${props => props.theme.colors.separatorBackground};
 		margin-right: 1rem;
 	}
 
@@ -81,7 +81,7 @@ export const Separator = styled.div`
 		content: '';
 		flex: 1;
 		height: 0.0625rem;
-		background-color: #a8a8b3;
+		background-color: ${props => props.theme.colors.separatorBackground};
 		margin-left: 1rem;
 	}
 `;

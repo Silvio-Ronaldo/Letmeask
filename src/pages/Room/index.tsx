@@ -5,8 +5,10 @@ import { FormHandles } from '@unform/core';
 
 import { useAuth } from '../../hooks/useAuth';
 import { useRoom } from '../../hooks/useRoom';
+import { useTheme } from '../../hooks/useTheme';
 import { database } from '../../services/firebase';
 
+import { ToggleTheme } from '../../components/ToggleTheme';
 import { RoomCode } from '../../components/RoomCode';
 import { Button } from '../../components/Button';
 import { Textarea } from '../../components/Textarea';
@@ -39,6 +41,7 @@ export function Room() {
 	const roomId = params.id;
 
 	const { title, questions } = useRoom(roomId);
+	const { isDarked } = useTheme();
 
 	const handleSendQuestion = useCallback(
 		async ({ newQuestion }: SendQuestionFormData) => {
@@ -89,9 +92,13 @@ export function Room() {
 	return (
 		<Container>
 			<header>
-				<HeaderContent>
+				<HeaderContent isDarked={isDarked}>
 					<img src={logoImg} alt="Letmeask" />
-					<RoomCode code={roomId} />
+
+					<div>
+						<ToggleTheme />
+						<RoomCode code={roomId} />
+					</div>
 				</HeaderContent>
 			</header>
 

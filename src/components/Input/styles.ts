@@ -5,8 +5,8 @@ export const Container = styled.div`
 		height: 3.125rem;
 		border-radius: 0.5rem;
 		padding: 0 1rem;
-		background-color: #fff;
-		border: 0.0625rem solid #a8a8b3;
+		background-color: ${props => props.theme.colors.inputBackground};
+		border: 0.0625rem solid ${props => props.theme.colors.inputBorder};
 		width: 100%;
 	}
 `;

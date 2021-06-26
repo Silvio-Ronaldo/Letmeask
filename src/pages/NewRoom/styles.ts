@@ -45,11 +45,11 @@ export const MainContent = styled.div`
 
 	p {
 		font-size: 0.875rem;
-		color: #737380;
+		color: ${props => props.theme.colors.newRoomParagraphColor};
 		margin-top: 1rem;
 
 		a {
-			color: #e559f9;
+			color: ${props => props.theme.colors.newRoomLinkColor};
 		}
 	}
 `;

@@ -6,8 +6,8 @@ export const Container = styled.aside`
 	flex-direction: column;
 	justify-content: center;
 
-	background-color: #835afd;
-	color: #fff;
+	background-color: ${props => props.theme.colors.asideBackground};
+	color: ${props => props.theme.colors.color};
 
 	padding: 7.5rem 5rem;
 
@@ -25,6 +25,6 @@ export const Container = styled.aside`
 		font-size: 1.5rem;
 		line-height: 2rem;
 		margin-top: 1rem;
-		color: #f8f8f8;
+		color: ${props => props.theme.colors.paragraphColor};
 	}
 `;

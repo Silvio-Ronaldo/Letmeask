@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ModalContent = styled.div`
 	display: flex;
+	background-color: ${props => props.theme.colors.modalBackground};
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -9,7 +10,7 @@ export const ModalContent = styled.div`
 
 	svg {
 		path {
-			stroke: #e13a3a;
+			stroke: ${props => props.theme.colors.modalSvgStroke};
 		}
 	}
 
@@ -18,13 +19,13 @@ export const ModalContent = styled.div`
 		font-size: 1.5rem;
 		font-family: 'Poppins', sans-serif;
 		font-weight: 700;
-		color: #29292e;
+		color: ${props => props.theme.colors.modalStrongColor};
 	}
 
 	span {
 		margin-top: 1rem;
 		font-size: 1rem;
-		color: #737373;
+		color: ${props => props.theme.colors.modalSpanColor};
 	}
 `;
 

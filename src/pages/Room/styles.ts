@@ -5,7 +5,9 @@ import { LikeButtonQuestion } from '../../components/Question/styles';
 export const Container = styled.div`
 	header {
 		padding: 1.5rem;
-		border-bottom: 0.0625rem solid #e2e2e2;
+		background: ${props => props.theme.colors.headerBackground};
+		border-bottom: 0.0625rem solid
+			${props => props.theme.colors.roomHeaderBorder};
 	}
 
 	main {
@@ -14,7 +16,7 @@ export const Container = styled.div`
 	}
 `;
 
-export const HeaderContent = styled.div`
+export const HeaderContent = styled.div<{ isDarked: boolean }>`
 	max-width: 70rem;
 	margin: 0 auto;
 	display: flex;
@@ -23,6 +25,20 @@ export const HeaderContent = styled.div`
 
 	> img {
 		max-height: 2.8125rem;
+	}
+
+	${props =>
+		props.isDarked &&
+		css`
+			> img {
+				filter: invert(38%) sepia(65%) saturate(3856%)
+					hue-rotate(241deg) brightness(96%) contrast(86%);
+			}
+		`}
+
+	div {
+		display: flex;
+		gap: 3rem;
 	}
 `;
 
@@ -34,15 +50,16 @@ export const RoomTitle = styled.div`
 	h1 {
 		font-family: 'Poppins', sans-serif;
 		font-size: 1.5rem;
-		color: #29292e;
+		color: ${props => props.theme.colors.roomTitleColor};
 	}
 
 	span {
 		margin-left: 1rem;
-		background-color: #e559f9;
+		background-color: ${props =>
+			props.theme.colors.roomTitleSpanBackground};
 		border-radius: 9999px;
 		padding: 0.5rem 1rem;
-		color: #fff;
+		color: ${props => props.theme.colors.roomTitleSpanColor};
 		font-weight: 500;
 		font-size: 0.875rem;
 	}
@@ -66,7 +83,7 @@ export const FormFooter = styled.div`
 
 		span {
 			margin-left: 0.5rem;
-			color: #29292e;
+			color: ${props => props.theme.colors.roomFormFooterSpanColor};
 			font-weight: 500;
 			font-size: 0.875rem;
 		}
@@ -74,13 +91,13 @@ export const FormFooter = styled.div`
 
 	> span {
 		font-size: 0.875rem;
-		color: #737380;
+		color: ${props => props.theme.colors.roomFormFooterSpanColor};
 		font-weight: 500;
 
 		button {
 			background-color: transparent;
 			border: 0;
-			color: #835afd;
+			color: ${props => props.theme.colors.roomFormFooterButtonColor};
 			text-decoration: underline;
 			font-size: 0.875rem;
 		}
@@ -95,12 +112,12 @@ export const LikeButton = styled(LikeButtonQuestion)<{ liked: boolean }>`
 	${props =>
 		props.liked &&
 		css`
-			color: #835afd;
+			color: ${props.theme.colors.likeButtonLikedColor};
 
 			svg {
 				path {
-					fill: #835afd;
-					stroke: #fff;
+					fill: ${props.theme.colors.likeButtonLikedSvgFill};
+					stroke: ${props.theme.colors.likeButtonLikedSvgStroke};
 				}
 			}
 		`}

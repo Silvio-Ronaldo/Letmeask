@@ -22,6 +22,8 @@ const customStyles = {
 		transform: 'translate(-50%, -50%)',
 		borderRadius: '10px',
 		boxShadow: '1px 2px 10px #3f3f3f',
+		padding: 0,
+		border: 0,
 	},
 };
 

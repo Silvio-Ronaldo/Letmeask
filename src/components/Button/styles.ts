@@ -8,8 +8,8 @@ export const Container = styled.button<{
 	height: 3.125rem;
 	border-radius: 0.5rem;
 	font-weight: 500;
-	background-color: #835afd;
-	color: #fff;
+	background-color: ${props => props.theme.colors.buttonBackground};
+	color: ${props => props.theme.colors.color};
 	padding: 0 2rem;
 
 	display: flex;
@@ -25,9 +25,9 @@ export const Container = styled.button<{
 	${props =>
 		props.outlined &&
 		css`
-			background-color: #fff;
-			border: 0.0625rem solid #835afd;
-			color: #835afd;
+			background-color: ${props.theme.colors.buttonOutlinedBackground};
+			border: 0.0625rem solid ${props.theme.colors.buttonOutlinedBorder};
+			color: ${props.theme.colors.buttonOutlinedColor};
 		`}
 
 	${props =>

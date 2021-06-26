@@ -5,13 +5,14 @@ export const Container = styled.button`
 	border-radius: 0.5rem;
 	overflow: hidden;
 
-	background-color: #fff;
-	border: 0.0625rem solid #835afd;
+	background-color: ${props => props.theme.colors.roomCodeBackground};
+	border: 0.0625rem solid ${props => props.theme.colors.roomCodeBorder};
 
 	display: flex;
 
 	div {
-		background-color: #835afd;
+		background-color: ${props =>
+			props.theme.colors.roomCodeImageBackground};
 		padding: 0 0.75rem;
 		display: flex;
 		justify-content: center;
@@ -27,5 +28,6 @@ export const Container = styled.button`
 		width: 15rem;
 		font-size: 0.875rem;
 		font-weight: 500;
+		color: ${props => props.theme.colors.roomCodeSpanColor};
 	}
 `;
