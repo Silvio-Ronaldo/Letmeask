@@ -43,6 +43,8 @@ declare module 'styled-components' {
 			roomCodeImageBackground: string;
 			roomCodeSpanColor: string;
 
+			logoutColor: string;
+
 			textAreaBackground: string;
 			textAreaColor: string;
 

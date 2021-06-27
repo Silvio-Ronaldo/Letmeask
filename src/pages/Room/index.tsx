@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 
@@ -10,6 +10,7 @@ import { database } from '../../services/firebase';
 
 import { ToggleTheme } from '../../components/ToggleTheme';
 import { RoomCode } from '../../components/RoomCode';
+import { Logout } from '../../components/Logout';
 import { Button } from '../../components/Button';
 import { Textarea } from '../../components/Textarea';
 import { Question } from '../../components/Question';
@@ -35,8 +36,9 @@ type SendQuestionFormData = {
 
 export function Room() {
 	const params = useParams<RoomParams>();
-	const { user } = useAuth();
+	const { user, signInWithGoogle } = useAuth();
 	const formRef = useRef<FormHandles>(null);
+	const history = useHistory();
 
 	const roomId = params.id;
 
@@ -89,6 +91,14 @@ export function Room() {
 		[roomId, user?.id],
 	);
 
+	const handleCreateRoom = useCallback(async () => {
+		if (!user) {
+			await signInWithGoogle();
+		}
+
+		history.push('/rooms/new');
+	}, [user, signInWithGoogle, history]);
+
 	return (
 		<Container>
 			<header>
@@ -98,6 +108,7 @@ export function Room() {
 					<div>
 						<ToggleTheme />
 						<RoomCode code={roomId} />
+						{user && <Logout />}
 					</div>
 				</HeaderContent>
 			</header>
@@ -125,7 +136,13 @@ export function Room() {
 						) : (
 							<span>
 								Para enviar uma pergunta,{' '}
-								<button type="button">faça seu login</button>.
+								<button
+									type="button"
+									onClick={handleCreateRoom}
+								>
+									faça seu login
+								</button>
+								.
 							</span>
 						)}
 						<Button type="submit" disabled={!user}>

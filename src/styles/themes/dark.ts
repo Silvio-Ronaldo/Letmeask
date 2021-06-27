@@ -40,6 +40,8 @@ export default {
 		roomCodeImageBackground: '#835afd',
 		roomCodeSpanColor: '#ffffff',
 
+		logoutColor: '#835afd',
+
 		textAreaBackground: '#0d0d0d',
 		textAreaColor: '#ffffff',
 
