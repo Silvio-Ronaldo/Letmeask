@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-import { registerServiceWorker } from './serviceWorker.js';
+// import { registerServiceWorker } from './serviceWorker.js';
 
 import './services/firebase';
 
@@ -13,4 +13,4 @@ ReactDOM.render(
 	document.getElementById('root'),
 );
 
-registerServiceWorker();
+// registerServiceWorker();

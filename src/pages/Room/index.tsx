@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 
@@ -38,7 +38,6 @@ export function Room() {
 	const params = useParams<RoomParams>();
 	const { user, signInWithGoogle } = useAuth();
 	const formRef = useRef<FormHandles>(null);
-	const history = useHistory();
 
 	const roomId = params.id;
 
@@ -91,13 +90,11 @@ export function Room() {
 		[roomId, user?.id],
 	);
 
-	const handleCreateRoom = useCallback(async () => {
+	const handleSignIn = useCallback(async () => {
 		if (!user) {
 			await signInWithGoogle();
 		}
-
-		history.push('/rooms/new');
-	}, [user, signInWithGoogle, history]);
+	}, [user, signInWithGoogle]);
 
 	return (
 		<Container>
@@ -136,10 +133,7 @@ export function Room() {
 						) : (
 							<span>
 								Para enviar uma pergunta,{' '}
-								<button
-									type="button"
-									onClick={handleCreateRoom}
-								>
+								<button type="button" onClick={handleSignIn}>
 									faça seu login
 								</button>
 								.

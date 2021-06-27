@@ -1,5 +1,4 @@
 import React, { createContext, ReactNode, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 import { firebase, auth } from '../services/firebase';
 
@@ -23,7 +22,6 @@ type AuthContextProviderProps = {
 
 export function AuthContextProvider({ children }: AuthContextProviderProps) {
 	const [user, setUser] = useState<User>();
-	const history = useHistory();
 
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged(old_user => {
@@ -70,8 +68,6 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
 	async function signOut() {
 		await auth.signOut();
 		setUser(undefined);
-
-		history.push('/');
 	}
 
 	return (

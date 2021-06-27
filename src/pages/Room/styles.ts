@@ -43,6 +43,14 @@ export const HeaderContent = styled.div<{ isDarked: boolean }>`
 	div {
 		display: flex;
 		gap: 3rem;
+
+		@media (max-width: 370px) {
+			gap: 1rem;
+
+			svg {
+				width: 1rem;
+			}
+		}
 	}
 `;
 

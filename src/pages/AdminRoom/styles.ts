@@ -44,6 +44,10 @@ export const HeaderContent = styled.div<{ isDarked: boolean }>`
 
 		@media (max-width: 370px) {
 			gap: 1rem;
+
+			svg {
+				width: 1rem;
+			}
 		}
 
 		> button {
